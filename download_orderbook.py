@@ -5,7 +5,6 @@ import datetime
 import pymongo
 import time
 import os
-import logging
 
 def download(url):
     response = requests.get(url)
@@ -32,7 +31,7 @@ if __name__ == '__main__':
             db['ltc'].insert_one({'date': date, 'orderbook': ltc})
             db['eos'].insert_one({'date': date, 'orderbook': eos})
 
-            logging.info('completed iter')
+            print('completed iter')
         except Exception as ex:
             print(f'Issues: {ex}')
         
